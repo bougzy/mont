@@ -67,7 +67,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://prop-api.vercel.app/register', { username, email, password });
+      await axios.post('http://localhost:5000/register', { username, email, password });
       setMessage('User registered successfully');
       setVariant('success');
       setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds

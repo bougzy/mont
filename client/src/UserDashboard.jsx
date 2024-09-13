@@ -141,7 +141,7 @@ const UserDashboard = ({ token }) => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const { data } = await axios.get('https://prop-api.vercel.app/user/properties', {
+        const { data } = await axios.get('http://localhost:5000/user/properties', {
           headers: { 'auth-token': token }
         });
         setProperties(data);
@@ -164,13 +164,13 @@ const UserDashboard = ({ token }) => {
     videos.forEach((video) => formData.append('videos', video));
 
     try {
-      await axios.post('https://prop-api.vercel.app/property', formData, {
+      await axios.post('http://localhost:5000/property', formData, {
         headers: { 'auth-token': token, 'Content-Type': 'multipart/form-data' }
       });
       setMessage('Property added successfully');
       setVariant('success');
       // Refresh properties list
-      const { data } = await axios.get('https://prop-api.vercel.app/user/properties', {
+      const { data } = await axios.get('http://localhost:5000/user/properties', {
         headers: { 'auth-token': token }
       });
       setProperties(data);
@@ -183,13 +183,13 @@ const UserDashboard = ({ token }) => {
 
   const handleDelete = async (propertyId) => {
     try {
-      await axios.delete(`https://prop-api.vercel.app/property/${propertyId}`, {
+      await axios.delete(`http://localhost:5000/property/${propertyId}`, {
         headers: { 'auth-token': token }
       });
       setMessage('Property deleted successfully');
       setVariant('success');
       // Refresh properties list
-      const { data } = await axios.get('https://prop-api.vercel.app/user/properties', {
+      const { data } = await axios.get('http://localhost:5000/user/properties', {
         headers: { 'auth-token': token }
       });
       setProperties(data);

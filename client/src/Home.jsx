@@ -190,7 +190,7 @@ const Homepage = () => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        const { data } = await axios.get('https://prop-api.vercel.app/properties');
+        const { data } = await axios.get('http://localhost:5000/properties');
         setProperties(data);
       } catch (error) {
         console.error('Error fetching properties:', error);
@@ -243,7 +243,7 @@ const Homepage = () => {
                   {property.images && property.images.length > 0 && (
                     <div onClick={() => handleShowModal(property)}>
                       <img
-                        src={`https://prop-api.vercel.app/${property.images[0]}`}
+                        src={`http://localhost:5000/${property.images[0]}`}
                         alt={`Property image ${property.title}`}
                         style={{ width: '100%', height: 'auto', cursor: 'pointer' }}
                       />
@@ -257,7 +257,7 @@ const Homepage = () => {
                         controls
                         style={{ width: '100%', height: 'auto', cursor: 'pointer' }}
                       >
-                        <source src={`https://prop-api.vercel.app/${property.videos[0]}`} type="video/mp4" />
+                        <source src={`http://localhost:5000/${property.videos[0]}`} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                     </div>
@@ -296,7 +296,7 @@ const Homepage = () => {
                   {selectedProperty.images.map((image, index) => (
                     <Carousel.Item key={index}>
                       <img
-                        src={`https://prop-api.vercel.app/${image}`}
+                        src={`http://localhost:5000/${image}`}
                         alt={`Property image ${index + 1}`}
                         style={{ width: '100%', height: 'auto' }}
                       />
@@ -314,7 +314,7 @@ const Homepage = () => {
                         controls
                         style={{ width: '100%', height: 'auto' }}
                       >
-                        <source src={`https://prop-api.vercel.app/${video}`} type="video/mp4" />
+                        <source src={`http://localhost:5000/${video}`} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                     </Carousel.Item>

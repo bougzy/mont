@@ -71,7 +71,7 @@ const AdminLogin = ({ setAdminToken }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('https://prop-api.vercel.app/admin/login', { username, password });
+      const { data } = await axios.post('https://localhost:5000/admin/login', { username, password });
       setAdminToken(data.token);
       alert('Admin login successful');
       navigate('/admin-dashboard'); // Navigate to admin dashboard

@@ -152,10 +152,10 @@ const AdminDashboard = ({ adminToken }) => {
     const fetchUsersAndProperties = async () => {
       try {
         const [usersData, propertiesData] = await Promise.all([
-          axios.get('https://prop-api.vercel.app/admin/users', {
+          axios.get('http://localhost:5000/admin/users', {
             headers: { 'auth-token': adminToken }
           }),
-          axios.get('https://prop-api.vercel.app/properties')
+          axios.get('http://localhost:5000/properties')
         ]);
         setUsers(usersData.data);
         setProperties(propertiesData.data);
@@ -169,13 +169,13 @@ const AdminDashboard = ({ adminToken }) => {
 
   const handleBlockUser = async (userId) => {
     try {
-      await axios.post('https://prop-api.vercel.app/admin/block-user', { userId }, {
+      await axios.post('http://localhost:5000/admin/block-user', { userId }, {
         headers: { 'auth-token': adminToken }
       });
       setMessage('User blocked successfully');
       setVariant('success');
       // Refresh user list
-      const { data } = await axios.get('https://prop-api.vercel.app/admin/users', {
+      const { data } = await axios.get('http://localhost:5000/admin/users', {
         headers: { 'auth-token': adminToken }
       });
       setUsers(data);
@@ -188,13 +188,13 @@ const AdminDashboard = ({ adminToken }) => {
 
   const handleUnblockUser = async (userId) => {
     try {
-      await axios.post('https://prop-api.vercel.app/admin/unblock-user', { userId }, {
+      await axios.post('http://localhost:5000/admin/unblock-user', { userId }, {
         headers: { 'auth-token': adminToken }
       });
       setMessage('User unblocked successfully');
       setVariant('success');
       // Refresh user list
-      const { data } = await axios.get('https://prop-api.vercel.app/admin/users', {
+      const { data } = await axios.get('http://localhost:5000/admin/users', {
         headers: { 'auth-token': adminToken }
       });
       setUsers(data);
@@ -207,13 +207,13 @@ const AdminDashboard = ({ adminToken }) => {
 
   const handleDeleteProperty = async (propertyId) => {
     try {
-      await axios.post('https://prop-api.vercel.app/admin/delete-property', { propertyId }, {
+      await axios.post('http://localhost:5000/admin/delete-property', { propertyId }, {
         headers: { 'auth-token': adminToken }
       });
       setMessage('Property deleted successfully');
       setVariant('success');
       // Refresh property list
-      const { data } = await axios.get('https://prop-api.vercel.app/properties');
+      const { data } = await axios.get('http://localhost:5000/properties');
       setProperties(data);
     } catch (error) {
       console.error('Error deleting property:', error);
