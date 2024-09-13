@@ -31,7 +31,7 @@ const CustomNavbar = ({ token, adminToken }) => {
   return (
     <Navbar bg="primary" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/" className="fw-bold"><span className="text-white">Bayelsa</span> <span className="text-warning">Connect</span></Navbar.Brand>
+        <Navbar.Brand href="/" className="fw-bold"><span className="text-white">Bayelsa</span> Real Estate <span className="text-warning">Connect</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
